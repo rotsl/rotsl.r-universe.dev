@@ -2,5 +2,9 @@
   {
     "package": "grayleafspotr",
     "url": "https://github.com/rotsl/grayleafspotr"
+  },
+  {
+    "package": "grayleafspotdata",
+    "url": "https://github.com/rotsl/grayleafspotdata"
   }
 ]
