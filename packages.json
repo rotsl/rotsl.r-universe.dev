@@ -6,5 +6,10 @@
   {
     "package": "grayleafspotdata",
     "url": "https://github.com/rotsl/grayleafspotdata"
+  },
+  {
+    "package": "biotrace",
+    "url": "https://github.com/rotsl/biotrace-r"
   }
+
 ]
