@@ -1,0 +1,60 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - mkdocs.yml
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get cave files
+        uses: actions/checkout@v4
+
+      - name: Get Python cave tool
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Get MkDocs cave tools
+        run: pip install mkdocs-material pymdown-extensions
+
+      - name: Turn README into web cave
+        run: |
+          mkdir -p docs
+          cp README.md docs/index.md
+          mkdocs build --strict
+
+      - name: Pack Pages cave
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Put cave on Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

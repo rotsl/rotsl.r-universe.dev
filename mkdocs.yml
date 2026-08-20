@@ -1,0 +1,17 @@
+site_name: rotsl
+site_description: Take package. Use package. Happy.
+
+repo_url: https://github.com/rotsl/rotsl.r-universe.dev
+
+theme:
+  name: material
+
+markdown_extensions:
+  - tables
+  - fenced_code
+  - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
