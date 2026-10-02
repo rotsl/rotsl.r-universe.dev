@@ -1,7 +1,7 @@
 # Take package. Use package. Happy.
 
 A tidy cave of independent R packages made by
-[**rotsl**](https://github.com/rotsl).
+[**Rohan R (rotsl)**](https://github.com/rotsl).
 
 ------------------------------------------------------------------------
 
