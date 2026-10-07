@@ -3,94 +3,76 @@
 A tidy cave of independent R packages made by
 [**Rohan R (rotsl)**](https://github.com/rotsl).
 
-------------------------------------------------------------------------
+---
 
 ## Status
 
-[![packages status
-badge](https://rotsl.r-universe.dev/badges/:packages)](https://rotsl.r-universe.dev/packages)
-[![registry status
-badge](https://rotsl.r-universe.dev/badges/:registry)](https://rotsl.r-universe.dev/)
-[![articles status
-badge](https://rotsl.r-universe.dev/badges/:articles)](https://rotsl.r-universe.dev/articles)
+[![packages status badge](https://rotsl.r-universe.dev/badges/:packages)](https://rotsl.r-universe.dev/packages)
+[![registry status badge](https://rotsl.r-universe.dev/badges/:registry)](https://rotsl.r-universe.dev/)
+[![articles status badge](https://rotsl.r-universe.dev/badges/:articles)](https://rotsl.r-universe.dev/articles)
 
-------------------------------------------------------------------------
+---
 
 ## Packages
 
-| Package | What it does | R-universe / distribution | Source |
+| Package | What it does | Get it | Source |
 |---|---|---|---|
-| `grayleafspotr` | Analyze gray leaf spot colony images | [rotsl](https://rotsl.r-universe.dev/grayleafspotr) · [Bioconductor universe](https://bioc.r-universe.dev/grayleafspotr) | [GitHub](https://github.com/rotsl/grayleafspotr) |
+| `grayleafspotr` | Analyze gray leaf spot colony images | [rotsl](https://rotsl.r-universe.dev/grayleafspotr) · [Bioconductor universe](https://bioc.r-universe.dev/grayleafspotr) · [Bioconductor](https://bioconductor.org/packages/3.24/bioc/html/grayleafspotr.html) | [GitHub](https://github.com/rotsl/grayleafspotr) |
 | `grayleafspotdata` | Find gray leaf spot research files and images | [rotsl](https://rotsl.r-universe.dev/grayleafspotdata) | [GitHub](https://github.com/rotsl/grayleafspotdata) |
-| `biotrace` | Trace biological results from data and code to figures and claims | [rotsl](https://rotsl.r-universe.dev/biotrace) | [GitHub](https://github.com/rotsl/biotrace-r) |
-| `ExperimentalDesignGeneratorandRandomiser` | Generate and randomise reproducible experimental designs (EDGAR) | [BiologyAutomation](https://biologyautomation.r-universe.dev/ExperimentalDesignGeneratorandRandomiser) · [CRAN](https://CRAN.R-project.org/package=ExperimentalDesignGeneratorandRandomiser) | [GitHub](https://github.com/biologyautomation/edgar-r) |
+| `biotrace` | Trace results from data and code to figures and claims | [rotsl](https://rotsl.r-universe.dev/biotrace) | [GitHub](https://github.com/rotsl/biotrace-r) |
+| `ExperimentalDesignGeneratorandRandomiser` | Generate and randomise experimental designs (EDGAR) | [BiologyAutomation](https://biologyautomation.r-universe.dev/ExperimentalDesignGeneratorandRandomiser) · [CRAN](https://CRAN.R-project.org/package=ExperimentalDesignGeneratorandRandomiser) | [GitHub](https://github.com/biologyautomation/edgar-r) |
 
-Each package stands on its own.
+Each package stands alone.
 
-`grayleafspotdata` datasets can optionally be used as inputs to
-`grayleafspotr`, but neither package depends on the other.
+One optional bridge: `grayleafspotdata` can feed file and image information into
+`grayleafspotr`. No package dependency.
 
-`biotrace` is separate from both gray leaf spot packages.
-
-`ExperimentalDesignGeneratorandRandomiser` (EDGAR) is also independent.
-It is a native R implementation of the EDGAR experimental-design and
-randomisation algorithms and is distributed through CRAN and the
-BiologyAutomation R-universe.
-
-The rotsl package registry can show packages mirrored or linked from
-other universes. In particular, `grayleafspotr` is also available
-through the Bioconductor R-universe.
-
-------------------------------------------------------------------------
+---
 
 # 1. grayleafspotr
 
 Tool for looking at gray leaf spot things in R.
 
 [![R-universe](https://img.shields.io/badge/R--universe-grayleafspotr-blue)](https://rotsl.r-universe.dev/grayleafspotr)
-[![Bioconductor
-R-universe](https://img.shields.io/badge/Bioconductor-R--universe-87B13F)](https://bioc.r-universe.dev/grayleafspotr)
-[![GitHub](https://img.shields.io/badge/GitHub-rotsl%2Fgrayleafspotr-black)](https://github.com/rotsl/grayleafspotr)
+[![Bioconductor-R-universe](https://img.shields.io/badge/Bioconductor-R--universe-87B13F)](https://bioc.r-universe.dev/grayleafspotr)
+[![GitHub](https://img.shields.io/badge/GitHub-rotsl%2Fgrayleafspotr-yellow)](https://github.com/rotsl/grayleafspotr)
+[![Bioconductor](https://img.shields.io/badge/Bioconductor-FF6B6B)](https://bioconductor.org/packages/3.24/bioc/html/grayleafspotr.html)
+[![DOI](https://img.shields.io/badge/DOI-10.18129%2FB9.bioc.grayleafspotr-orange)](https://doi.org/10.18129/B9.bioc.grayleafspotr)
 
-`grayleafspotr` provides quantitative phenotyping tools for gray leaf
-spot (*Magnaporthe oryzae*) fungal colonies grown on petri dishes.
+`grayleafspotr` analyzes gray leaf spot (*Magnaporthe oryzae*) fungal colonies
+grown on petri dishes.
 
-It segments time-lapse plate photographs with a bundled SmallUNet model,
-extracts morphometric and texture features, and provides tidy result
-objects and template `ggplot2` visualisations. Python dependencies are
-managed through `basilisk`.
+It segments time-lapse plate photos with a bundled SmallUNet model, measures
+colony shape and texture, and makes tidy results and `ggplot2` plots.
+Python things are managed through `basilisk`.
 
 ## Use it to
 
--   Find gray leaf spot colonies
--   Segment colony images
--   Measure colony things
--   Make plots
--   Make tidy results
--   Work with time-series plate images
+- Find colonies
+- Segment images
+- Measure colony things
+- Make plots
+- Make tidy results
+- Work with time-series plate images
 
-## Basic flow
-
-``` mermaid
+```mermaid
 flowchart LR
     A["Colony images"] --> B["grayleafspotr"]
     B --> C["Segmentation"]
     B --> D["Measurements"]
-    B --> E["Plots"]
-    B --> F["Tidy results"]
+    B --> E["Plots + tidy results"]
 ```
 
 ## Links
 
--   [grayleafspotr on rotsl
-    R-universe](https://rotsl.r-universe.dev/grayleafspotr)
--   [grayleafspotr on the Bioconductor
-    R-universe](https://bioc.r-universe.dev/grayleafspotr)
--   [grayleafspotr source](https://github.com/rotsl/grayleafspotr)
--   [grayleafspotr
-    documentation](https://rotsl.github.io/grayleafspotr/)
+- [R-universe](https://rotsl.r-universe.dev/grayleafspotr)
+- [Bioconductor R-universe](https://bioc.r-universe.dev/grayleafspotr)
+- [Bioconductor](https://bioconductor.org/packages/3.24/bioc/html/grayleafspotr.html)
+- [Documentation](https://rotsl.github.io/grayleafspotr/)
+- [Source](https://github.com/rotsl/grayleafspotr)
+- DOI: [10.18129/B9.bioc.grayleafspotr](https://doi.org/10.18129/B9.bioc.grayleafspotr)
 
-------------------------------------------------------------------------
+---
 
 # 2. grayleafspotdata
 
@@ -99,192 +81,92 @@ Data map for gray leaf spot image things.
 [![R-universe](https://img.shields.io/badge/R--universe-grayleafspotdata-blue)](https://rotsl.r-universe.dev/grayleafspotdata)
 [![GitHub](https://img.shields.io/badge/GitHub-rotsl%2Fgrayleafspotdata-black)](https://github.com/rotsl/grayleafspotdata)
 
-`grayleafspotdata` provides machine-readable file and image manifests
-for the **S-BSST3199 Magnaporthe colony image dataset**.
+`grayleafspotdata` provides machine-readable file and image manifests for the
+**S-BSST3199 Magnaporthe colony image dataset**.
 
-Big research files stay in their original data cave.
-
-The package gives R tidy maps showing where those files and images live
-without stuffing all the pictures inside the package.
+Big research files stay in their original data cave. Package gives tidy maps
+showing where files and images live.
 
 ## Data things
 
--   `grayleafspot_files` --- deposited file manifest
--   `grayleafspot_images` --- individual colony image manifest
+- `grayleafspot_files` — deposited file manifest
+- `grayleafspot_images` — individual colony image manifest
 
-## Good for
-
--   Finding gray leaf spot research files
--   Finding individual colony images
--   Reproducible image-analysis workflows
--   Plant-pathology workflows
--   Using dataset information in other R workflows
-
-## Load the data maps
-
-``` r
+```r
 library(grayleafspotdata)
 
 data("grayleafspot_files")
 data("grayleafspot_images")
-
-head(grayleafspot_files)
-head(grayleafspot_images)
 ```
 
-Or poke them directly:
+Or poke directly:
 
-``` r
+```r
 grayleafspotdata::grayleafspot_files
 grayleafspotdata::grayleafspot_images
 ```
 
-## Basic flow
+Can be used alone. Can also feed manifests into `grayleafspotr`.
 
-``` mermaid
+```mermaid
 flowchart LR
-    A["Deposited research data"] --> B["grayleafspotdata"]
-    B --> C["grayleafspot_files"]
-    B --> D["grayleafspot_images"]
-    C --> E["Your R workflow"]
-    D --> E
+    A["Research data"] --> B["grayleafspotdata"]
+    B --> C["File + image manifests"]
+    C -. "optional input" .-> D["grayleafspotr"]
 ```
-
-## Optional use with grayleafspotr
-
-`grayleafspotdata` and `grayleafspotr` are independent packages.
-
-You can use either one without installing or using the other.
-
-However, the image and file information provided by `grayleafspotdata`
-can be useful when building workflows with `grayleafspotr`.
-
-``` mermaid
-flowchart LR
-    A["grayleafspotdata"] --> B["Image + file manifests"]
-    B -. "optional input" .-> C["grayleafspotr"]
-    C --> D["Image analysis results"]
-```
-
-The dotted arrow means **optional use**, not a package dependency.
 
 ## Links
 
--   [grayleafspotdata on
-    R-universe](https://rotsl.r-universe.dev/grayleafspotdata)
--   [grayleafspotdata source](https://github.com/rotsl/grayleafspotdata)
--   [All rotsl datasets](https://rotsl.r-universe.dev/datasets)
+- [R-universe](https://rotsl.r-universe.dev/grayleafspotdata)
+- [Source](https://github.com/rotsl/grayleafspotdata)
+- [All rotsl datasets](https://rotsl.r-universe.dev/datasets)
 
-[![R-universe
-datasets](https://img.shields.io/badge/R--universe-datasets-blue)](https://rotsl.r-universe.dev/datasets)
-
-------------------------------------------------------------------------
+---
 
 # 3. biotrace
 
-Trace science things from data and code to figures and scientific
-claims.
+Trace science things from data and code to figures and claims.
 
 [![R-universe](https://img.shields.io/badge/R--universe-biotrace-blue)](https://rotsl.r-universe.dev/biotrace)
 [![GitHub](https://img.shields.io/badge/GitHub-rotsl%2Fbiotrace--r-black)](https://github.com/rotsl/biotrace-r)
 
-`biotrace` is the R integration package for the **BioTrace GitHub
-Action**.
+`biotrace` is the R integration package for the **BioTrace GitHub Action**.
 
-BioTrace traces biological results from data and code to figures and
-scientific claims.
-
-The R package helps R projects configure BioTrace, create the required
-GitHub Actions workflow, validate configuration, and read reports
-produced by BioTrace.
-
-`biotrace` is independent of `grayleafspotr` and `grayleafspotdata`.
-
-## Use it to
-
--   Create `.github/biotrace.yml`
--   Create the BioTrace GitHub Actions workflow
--   Validate BioTrace configuration
--   Read BioTrace JSON reports
--   Print and summarize reports in R
--   Use BioTrace from the command line
--   Trigger or inspect an existing BioTrace workflow on GitHub
+It helps R projects configure BioTrace, make the GitHub Actions workflow,
+validate config, and read BioTrace reports.
 
 ## Quick start
 
-``` r
+```r
 library(biotrace)
 
 use_biotrace()
-```
-
-Validate a configuration file:
-
-``` r
 validate_biotrace_config(".github/biotrace.yml")
-```
 
-Read a BioTrace report:
-
-``` r
 report <- read_biotrace_report("biotrace-report.json")
-
-print(report)
 summary(report)
 ```
 
-## How biotrace works
-
-``` mermaid
+```mermaid
 flowchart LR
-    A["R project"] --> B["biotrace R package"]
-    B --> C["BioTrace config"]
-    B --> D["GitHub Actions workflow"]
-
-    C --> E["GitHub Actions"]
-    D --> E
-
-    E --> F["rotsl/biotrace@v1"]
-    F --> G["BioTrace report"]
-
-    G --> H["biotrace report reader"]
-    H --> I["R objects + summaries"]
+    A["R project"] --> B["biotrace"]
+    B --> C["Config + workflow"]
+    C --> D["rotsl/biotrace@v1"]
+    D --> E["BioTrace report"]
+    E --> B
 ```
 
-## Package architecture
-
-``` mermaid
-flowchart TD
-    A["biotrace"] --> B["Configuration helpers"]
-    A --> C["Workflow scaffolding"]
-    A --> D["Report readers"]
-    A --> E["Command-line interface"]
-    A --> F["GitHub helper"]
-```
-
-## Important cave rule
-
-The R package is an integration layer.
-
-``` mermaid
-flowchart LR
-    A["biotrace R package"] -->|"configure + scaffold"| B["GitHub Actions"]
-    B -->|"uses"| C["rotsl/biotrace@v1"]
-    C -->|"produces"| D["BioTrace report"]
-    D -->|"read"| A
-```
-
-The `biotrace` R package does not vendor, modify, or locally execute the
-upstream TypeScript tracing engine.
+Cave rule: R package is integration layer. It does not vendor, modify, or
+locally run the upstream TypeScript tracing engine.
 
 ## Links
 
--   [biotrace on R-universe](https://rotsl.r-universe.dev/biotrace)
--   [biotrace R source](https://github.com/rotsl/biotrace-r)
--   [biotrace documentation](https://rotsl.github.io/biotrace-r/)
--   [BioTrace GitHub Action](https://github.com/rotsl/biotrace)
+- [R-universe](https://rotsl.r-universe.dev/biotrace)
+- [Documentation](https://rotsl.github.io/biotrace-r/)
+- [R source](https://github.com/rotsl/biotrace-r)
+- [BioTrace GitHub Action](https://github.com/rotsl/biotrace)
 
-------------------------------------------------------------------------
+---
 
 # 4. ExperimentalDesignGeneratorandRandomiser
 
@@ -294,59 +176,43 @@ Experimental design things. Randomise them reproducibly.
 [![CRAN](https://img.shields.io/badge/CRAN-ExperimentalDesignGeneratorandRandomiser-blue)](https://CRAN.R-project.org/package=ExperimentalDesignGeneratorandRandomiser)
 [![GitHub](https://img.shields.io/badge/GitHub-biologyautomation%2Fedgar--r-black)](https://github.com/biologyautomation/edgar-r)
 
-`ExperimentalDesignGeneratorandRandomiser` is the native R
-implementation of **EDGAR**, the Experimental Design Generator and
-Randomiser.
+`ExperimentalDesignGeneratorandRandomiser` is the native R implementation of
+**EDGAR**, the Experimental Design Generator and Randomiser.
 
-The R package ports the open-source EDGAR algorithms to native R. It
-does not require Python, `reticulate`, or an external service at
-runtime.
+It ports EDGAR algorithms to native R. No Python, `reticulate`, or external
+service needed at runtime.
 
 ## Use it to
 
--   Generate reproducible experimental designs
--   Randomise treatments deterministically
--   Work with completely randomised and randomised complete block
-    designs
--   Work with unequal, split-plot, two-factor, Latin-square,
-    variable-block, and alpha designs
--   Propose viable alpha-design structures
--   Validate design parameters
--   Export designs to CSV, JSON, and XLSX
--   Reproduce EDGAR randomisation across the R and Python
-    implementations
+- Generate reproducible experimental designs
+- Randomise treatments deterministically
+- Make CRD, RCBD, split-plot, two-factor, Latin-square, variable-block, and alpha designs
+- Propose alpha-design structures
+- Validate design parameters
+- Export CSV, JSON, and XLSX
 
-## Basic flow
-
-``` mermaid
+```mermaid
 flowchart LR
-    A["Design parameters"] --> B["EDGAR R package"]
-    B --> C["Generate design"]
-    B --> D["Validate design"]
-    C --> E["Reproducible randomisation"]
-    E --> F["CSV / JSON / XLSX"]
+    A["Design parameters"] --> B["EDGAR R"]
+    B --> C["Generate + validate"]
+    C --> D["Reproducible randomisation"]
+    D --> E["CSV / JSON / XLSX"]
 ```
 
 ## Links
 
--   [EDGAR R package on BiologyAutomation
-    R-universe](https://biologyautomation.r-universe.dev/ExperimentalDesignGeneratorandRandomiser)
--   [EDGAR R package on
-    CRAN](https://CRAN.R-project.org/package=ExperimentalDesignGeneratorandRandomiser)
--   [EDGAR R source](https://github.com/biologyautomation/edgar-r)
--   [EDGAR documentation](https://rotsl.github.io/edgar/)
+- [BiologyAutomation R-universe](https://biologyautomation.r-universe.dev/ExperimentalDesignGeneratorandRandomiser)
+- [CRAN](https://CRAN.R-project.org/package=ExperimentalDesignGeneratorandRandomiser)
+- [Documentation](https://rotsl.github.io/edgar/)
+- [Source](https://github.com/biologyautomation/edgar-r)
 
-------------------------------------------------------------------------
+---
 
 # Installation
 
-## Install all packages
+Install all four:
 
-All four packages can be installed together for convenience.
-
-They do not form a required package stack.
-
-``` r
+```r
 install.packages(
   c(
     "grayleafspotr",
@@ -362,154 +228,32 @@ install.packages(
 )
 ```
 
-`grayleafspotr` is available from the Bioconductor R-universe.
-`grayleafspotdata` and `biotrace` are available from the rotsl
-R-universe. `ExperimentalDesignGeneratorandRandomiser` is on CRAN, so
-the CRAN repository in the list above supplies it.
+Or install one thing:
 
-## Install one package at a time
-
-### grayleafspotr
-
-``` r
+```r
 install.packages(
   "grayleafspotr",
-  repos = c(
-    "https://bioc.r-universe.dev",
-    "https://cloud.r-project.org"
-  )
+  repos = c("https://bioc.r-universe.dev", "https://cloud.r-project.org")
 )
-```
 
-### grayleafspotdata
-
-``` r
 install.packages(
   "grayleafspotdata",
-  repos = c(
-    "https://rotsl.r-universe.dev",
-    "https://cloud.r-project.org"
-  )
+  repos = c("https://rotsl.r-universe.dev", "https://cloud.r-project.org")
 )
-```
 
-### biotrace
-
-``` r
 install.packages(
   "biotrace",
-  repos = c(
-    "https://rotsl.r-universe.dev",
-    "https://cloud.r-project.org"
-  )
+  repos = c("https://rotsl.r-universe.dev", "https://cloud.r-project.org")
 )
-```
 
-### ExperimentalDesignGeneratorandRandomiser
-
-``` r
 install.packages("ExperimentalDesignGeneratorandRandomiser")
 ```
 
-The package is on CRAN. It is also available from the BiologyAutomation
-R-universe.
-
-------------------------------------------------------------------------
-
-# Package relationships
-
-The packages are independent.
-
-``` mermaid
-flowchart TD
-    A["grayleafspotr<br/>Image analysis"]
-    B["grayleafspotdata<br/>Dataset manifests"]
-    C["biotrace<br/>Scientific traceability"]
-    D["ExperimentalDesignGeneratorandRandomiser<br/>Experimental design + randomisation"]
-
-    B -. "datasets can optionally be used with" .-> A
-```
-
-There is only one optional relationship:
-
-**`grayleafspotdata` → `grayleafspotr`**
-
-The manifests and datasets provided by `grayleafspotdata` can be used
-when working with `grayleafspotr`.
-
-This does **not** mean:
-
--   `grayleafspotr` depends on `grayleafspotdata`
--   `grayleafspotdata` depends on `grayleafspotr`
--   either gray leaf spot package depends on `biotrace`
--   `biotrace` depends on either gray leaf spot package
--   EDGAR depends on any of the other packages
--   any of the other packages depend on EDGAR
-
-Each package can be installed and used independently.
-
-------------------------------------------------------------------------
-
-# Documentation
-
-## Package wisdom
-
--   [grayleafspotr
-    documentation](https://rotsl.github.io/grayleafspotr/)
--   [biotrace documentation](https://rotsl.github.io/biotrace-r/)
--   [EDGAR documentation](https://rotsl.github.io/edgar/)
-
-## R-universe caves
-
--   [grayleafspotr --- rotsl
-    R-universe](https://rotsl.r-universe.dev/grayleafspotr)
--   [grayleafspotr --- Bioconductor
-    R-universe](https://bioc.r-universe.dev/grayleafspotr)
--   [grayleafspotdata](https://rotsl.r-universe.dev/grayleafspotdata)
--   [biotrace](https://rotsl.r-universe.dev/biotrace)
--   [ExperimentalDesignGeneratorandRandomiser --- BiologyAutomation
-    R-universe](https://biologyautomation.r-universe.dev/ExperimentalDesignGeneratorandRandomiser)
--   [All rotsl datasets](https://rotsl.r-universe.dev/datasets)
-
-## Source caves
-
--   [grayleafspotr on GitHub](https://github.com/rotsl/grayleafspotr)
--   [grayleafspotdata on
-    GitHub](https://github.com/rotsl/grayleafspotdata)
--   [biotrace R package on GitHub](https://github.com/rotsl/biotrace-r)
--   [BioTrace GitHub Action](https://github.com/rotsl/biotrace)
--   [EDGAR R package on
-    GitHub](https://github.com/biologyautomation/edgar-r)
-
-------------------------------------------------------------------------
-
-# Gray Leaf Spot Demo Cave
-
-Try the gray leaf spot machine here:
-
--   [Demo
-    cave](https://huggingface.co/spaces/rotsl/grayleafspot-segmentation-demo)
--   [Model
-    cave](https://huggingface.co/rotsl/grayleafspot-segmentation-demo)
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
-[![DOI](https://img.shields.io/badge/DOI-10.57967%2Fhf%2F8569-orange)](https://doi.org/10.57967/hf/8569)
-
-The demo cave can:
-
--   Take pictures
--   Find gray leaf spot colonies
--   Make overlay pictures
--   Make plots
--   Export CSV
--   Export JSON
--   Pack results into a ZIP bundle
-
-------------------------------------------------------------------------
+---
 
 # Cave map
 
-``` mermaid
+```mermaid
 flowchart LR
     A["grayleafspotdata<br/>Find research data"]
     B["grayleafspotr<br/>Analyze colony images"]
@@ -519,20 +263,21 @@ flowchart LR
     A -. "optional dataset use" .-> B
 ```
 
-**grayleafspotdata** gives tidy maps to research data.
+Four packages. Four jobs. One optional bridge.
 
-**grayleafspotr** analyzes gray leaf spot colony images.
+---
 
-**biotrace** handles scientific traceability through the BioTrace GitHub
-Action.
+# Gray Leaf Spot Demo Cave
 
-**ExperimentalDesignGeneratorandRandomiser** generates and randomises
-experimental designs.
+Try gray leaf spot machine here:
 
-Four packages.
+- [Demo cave](https://huggingface.co/spaces/rotsl/grayleafspot-segmentation-demo)
+- [Model cave](https://huggingface.co/rotsl/grayleafspot-segmentation-demo)
 
-Four separate jobs.
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![DOI](https://img.shields.io/badge/DOI-10.57967%2Fhf%2F8569-orange)](https://doi.org/10.57967/hf/8569)
 
-One optional bridge from `grayleafspotdata` to `grayleafspotr`.
+Demo cave takes pictures, finds colonies, makes overlays and plots, and exports
+CSV, JSON, or ZIP.
 
 Happy.
