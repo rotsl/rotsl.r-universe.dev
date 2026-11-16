@@ -12,27 +12,26 @@ A tidy cave of independent R packages made by
 [![articles status badge](https://rotsl.r-universe.dev/badges/:articles)](https://rotsl.r-universe.dev/articles)
 
 ---
-
 ## Packages
-
 | Package | What it does | Get it | Source |
 |---|---|---|---|
 | `grayleafspotr` | Analyze gray leaf spot colony images | [rotsl](https://rotsl.r-universe.dev/grayleafspotr) · [Bioconductor universe](https://bioc.r-universe.dev/grayleafspotr) · [Bioconductor](https://bioconductor.org/packages/3.24/bioc/html/grayleafspotr.html) | [GitHub](https://github.com/rotsl/grayleafspotr) |
 | `grayleafspotdata` | Find gray leaf spot research files and images | [rotsl](https://rotsl.r-universe.dev/grayleafspotdata) | [GitHub](https://github.com/rotsl/grayleafspotdata) |
 | `biotrace` | Trace results from data and code to figures and claims | [rotsl](https://rotsl.r-universe.dev/biotrace) | [GitHub](https://github.com/rotsl/biotrace-r) |
 | `ExperimentalDesignGeneratorandRandomiser` | Generate and randomise experimental designs (EDGAR) | [BiologyAutomation](https://biologyautomation.r-universe.dev/ExperimentalDesignGeneratorandRandomiser) · [CRAN](https://CRAN.R-project.org/package=ExperimentalDesignGeneratorandRandomiser) | [GitHub](https://github.com/biologyautomation/edgar-r) |
+| `crossStatR` | One stats tool. Biology, electrochemistry, light, spectra, physics. Many science numbers. | [rotsl](https://rotsl.r-universe.dev/crossStatR) · [Docs](https://rotsl.github.io/crossStatR/) | [GitHub](https://github.com/rotsl/crossStatR) |
 
 Each package stands alone.
 
 One optional bridge: `grayleafspotdata` can feed file and image information into
 `grayleafspotr`. No package dependency.
 
----
+`crossStatR` stands alone too. No bridge to other cave packages.
 
+---
 # 1. grayleafspotr
 
 Tool for looking at gray leaf spot things in R.
-
 [![R-universe](https://img.shields.io/badge/R--universe-grayleafspotr-blue)](https://rotsl.r-universe.dev/grayleafspotr)
 [![Bioconductor-R-universe](https://img.shields.io/badge/Bioconductor-R--universe-87B13F)](https://bioc.r-universe.dev/grayleafspotr)
 [![GitHub](https://img.shields.io/badge/GitHub-rotsl%2Fgrayleafspotr-yellow)](https://github.com/rotsl/grayleafspotr)
@@ -73,7 +72,6 @@ flowchart LR
 - DOI: [10.18129/B9.bioc.grayleafspotr](https://doi.org/10.18129/B9.bioc.grayleafspotr)
 
 ---
-
 # 2. grayleafspotdata
 
 Data map for gray leaf spot image things.
@@ -83,7 +81,6 @@ Data map for gray leaf spot image things.
 
 `grayleafspotdata` provides machine-readable file and image manifests for the
 **S-BSST3199 Magnaporthe colony image dataset**.
-
 Big research files stay in their original data cave. Package gives tidy maps
 showing where files and images live.
 
@@ -122,7 +119,6 @@ flowchart LR
 - [All rotsl datasets](https://rotsl.r-universe.dev/datasets)
 
 ---
-
 # 3. biotrace
 
 Trace science things from data and code to figures and claims.
@@ -167,7 +163,6 @@ locally run the upstream TypeScript tracing engine.
 - [BioTrace GitHub Action](https://github.com/rotsl/biotrace)
 
 ---
-
 # 4. ExperimentalDesignGeneratorandRandomiser
 
 Experimental design things. Randomise them reproducibly.
@@ -207,10 +202,48 @@ flowchart LR
 - [Source](https://github.com/biologyautomation/edgar-r)
 
 ---
+# 5. crossStatR
 
+One stats tool. Many science numbers. Version **0.99.2**.
+
+[![R-universe](https://img.shields.io/badge/R--universe-crossStatR-blue)](https://rotsl.r-universe.dev/crossStatR)
+[![Version](https://img.shields.io/badge/version-0.99.2-brightgreen)](https://rotsl.r-universe.dev/crossStatR)
+[![GitHub](https://img.shields.io/badge/GitHub-rotsl%2FcrossStatR-black)](https://github.com/rotsl/crossStatR)
+[![Docs](https://img.shields.io/badge/Docs-crossStatR-orange)](https://rotsl.github.io/crossStatR/)
+
+`crossStatR` puts science statistics in one R cave. Biology experiments.
+Electrochemistry measurements. Light and spectra measurements. Physics
+experiment data. Different science things. One stats framework.
+
+## Use it to
+
+- Work with biology experiment numbers
+- Work with electrochemistry measurements
+- Work with optical and spectroscopy measurements
+- Work with experimental physics data
+- Keep science statistics in one framework
+
+```mermaid
+flowchart LR
+    A["Biology experiments"] --> E["crossStatR"]
+    B["Electrochemistry"] --> E
+    C["Light + spectra"] --> E
+    D["Physics experiments"] --> E
+    E --> F["Science statistics"]
+```
+
+Cave rule: `crossStatR` is its own package. No bridge to other packages in this cave.
+
+## Links
+
+- [R-universe](https://rotsl.r-universe.dev/crossStatR)
+- [Documentation](https://rotsl.github.io/crossStatR/)
+- [Source](https://github.com/rotsl/crossStatR)
+
+---
 # Installation
 
-Install all four:
+Install all five:
 
 ```r
 install.packages(
@@ -218,7 +251,8 @@ install.packages(
     "grayleafspotr",
     "grayleafspotdata",
     "biotrace",
-    "ExperimentalDesignGeneratorandRandomiser"
+    "ExperimentalDesignGeneratorandRandomiser",
+    "crossStatR"
   ),
   repos = c(
     "https://bioc.r-universe.dev",
@@ -235,7 +269,6 @@ install.packages(
   "grayleafspotr",
   repos = c("https://bioc.r-universe.dev", "https://cloud.r-project.org")
 )
-
 install.packages(
   "grayleafspotdata",
   repos = c("https://rotsl.r-universe.dev", "https://cloud.r-project.org")
@@ -247,10 +280,14 @@ install.packages(
 )
 
 install.packages("ExperimentalDesignGeneratorandRandomiser")
+
+install.packages(
+  "crossStatR",
+  repos = c("https://rotsl.r-universe.dev", "https://cloud.r-project.org")
+)
 ```
 
 ---
-
 # Cave map
 
 ```mermaid
@@ -259,14 +296,14 @@ flowchart LR
     B["grayleafspotr<br/>Analyze colony images"]
     C["biotrace<br/>Trace scientific results"]
     D["EDGAR<br/>Design + randomise experiments"]
+    E["crossStatR<br/>Science statistics"]
 
     A -. "optional dataset use" .-> B
 ```
 
-Four packages. Four jobs. One optional bridge.
+Five packages. Five jobs. One optional bridge. `crossStatR` stands alone.
 
 ---
-
 # Gray Leaf Spot Demo Cave
 
 Try gray leaf spot machine here:
