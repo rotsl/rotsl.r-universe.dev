@@ -10,6 +10,10 @@
   {
     "package": "biotrace",
     "url": "https://github.com/rotsl/biotrace-r"
+  },
+  {
+  "package": "crossStatR",
+  "url": "https://github.com/rotsl/crossStatR"
   }
 
 ]
